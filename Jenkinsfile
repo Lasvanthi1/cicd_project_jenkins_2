@@ -36,7 +36,7 @@ pipeline {
             steps {
                script {
                   // def dockerbuild = 'docker-compose build'
-                    def dockerCmd = 'docker-compose up -d'
+                    def dockerCmd = 'docker compose up -d'
                     sshagent(['sshkeypair']) {
                         //chnage the private ip in below code
                         // sh "docker run -itd --name My-first-containe211 -p 8082:80 akshu20791/2febimg:v1"
