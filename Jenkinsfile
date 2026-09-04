@@ -17,10 +17,14 @@ pipeline {
                 echo 'code build also done'
             }
         }
+        
         stage("scan image"){
-            steps{
-                echo 'image is scanned'
-            }
+             steps{
+                  sh ''' echo "Starting Trivy vulnerability scan..." 
+                  docker run --rm \ -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest  image  --severity HIGH,CRITICAL  --exit-code 1 node-app-test-new:latest 
+                  echo "Trivy scan completed" 
+                  ''' 
+              } 
         }
         stage("push"){
             steps{
