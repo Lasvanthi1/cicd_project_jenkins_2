@@ -2,6 +2,6 @@ version: '3.9'
 
 services:
   web:
-    image: "akshu20791/node-app-test-new:latest"     #add the image name 
+    image: "lasvanthi/node-app-test-new"     #add the image name 
     ports:
       - "8000:8000"     
