@@ -1,7 +1,12 @@
 pipeline {
     agent any
+    environment {
+        SONAR_HOME = tool "Sonar"
+    }
+
         
     stages {
+        
         
         stage("code"){
             steps{
