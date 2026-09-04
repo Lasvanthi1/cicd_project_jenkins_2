@@ -6,6 +6,28 @@ pipeline {
 
         
     stages {
+
+        stage("SonarQube Analysis") {
+            steps {
+                withSonarQubeEnv("SonarQube") {
+                    sh '''
+                        $SONAR_HOME/bin/sonar-scanner \
+                        -Dsonar.projectName=nodetodo \
+                        -Dsonar.projectKey=nodetodo \
+                        -Dsonar.sources=. \
+                        -Dsonar.exclusions=node_modules/**
+                    '''
+                }
+            }
+        }
+
+        stage("SonarQube Quality Gates") {
+            steps {
+                timeout(time: 5, unit: "MINUTES") {
+                    waitForQualityGate abortPipeline: false
+                }
+            }
+        }
         
         
         stage("code"){
