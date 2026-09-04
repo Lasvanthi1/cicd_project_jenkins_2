@@ -41,9 +41,9 @@ pipeline {
                         //chnage the private ip in below code
                         // sh "docker run -itd --name My-first-containe211 -p 8082:80 akshu20791/2febimg:v1"
                        //  sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.36.171 ${dockerbuild}"
-                         sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.36.171 wget https://raw.githubusercontent.com/akshu20791/cicd-project2/master/docker-compose.yaml"
-                         sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.36.171 chmod 777 docker-compose.yaml"
-                         sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.36.171 ${dockerCmd}"
+                         sh "ssh -o StrictHostKeyChecking=no ubuntu@43.204.228.230 wget https://raw.githubusercontent.com/Lasvanthi1/cicd_project_jenkins_2/master/docker-compose.yaml"
+                         sh "ssh -o StrictHostKeyChecking=no ubuntu@43.204.228.230 chmod 777 docker-compose.yaml"
+                         sh "ssh -o StrictHostKeyChecking=no ubuntu@43.204.228.230 ${dockerCmd}"
                     }
                 }
             }
